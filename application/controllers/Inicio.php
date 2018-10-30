@@ -8,7 +8,9 @@ class Inicio extends CI_Controller {
     }
 
 	public function index(){
-
+        $this->load->view('Common/header');
+        $this->load->view('Common/navbar');
+        $this->load->view('Common/footer');
 	}
 
 }
