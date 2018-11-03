@@ -20,8 +20,19 @@
                 <button class="btn btn-success" type="submit">Buscar</button>
             </form> -->
             <li class="nav-item">
-                <a class="nav-link" href="#">Iniciar Sesión</a>
+                <?php if ($this->session->userdata('fcc')) { ?>
+                    <button class="btn btn-primary" href="<?php echo base_url('ingreso/salir'); ?>">
+                        Cerrar Sesión
+                    </button>
+                <?php }else { ?>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sesion">
+                        Iniciar Sesión
+                    </button>
+                <?php } ?>
+
+                <!-- <a class="nav-link" href="#">Iniciar Sesión</a> -->
             </li>
         </ul>
     </div>
 </nav>
+<?php $this->load->view('ingreso/sesion'); ?>

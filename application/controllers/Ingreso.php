@@ -8,7 +8,18 @@ class Ingreso extends CI_Controller {
     }
 
 	public function index(){
+        $this->load->view('common/header');
+		$this->load->view('common/navbar');
+        //$this->load->view('ingreso/sesion');
+		$this->load->view('common/footer');
 
 	}
 
+    public function verificar(){
+        // code...
+    }
+
+    public function salir(){
+
+    }
 }
