@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Alumnos` (
   `Matricula` INT NOT NULL,
   `Carrera` VARCHAR(40) NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
-  `Nombre` VARCHAR(45) NULL,
+  `Nombre2` VARCHAR(45) NULL,
   `Apellido` VARCHAR(45) NOT NULL,
   `Apellido2` VARCHAR(45) NULL,
   PRIMARY KEY (`Id_Alumno`),
