@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
     <a class="navbar-brand" href="<?php echo base_url(); ?>">
-        <img src="bird.jpg" alt="Logo" style="width:40px;">
+        <img src="<?php echo base_url('public/img/Logo_AppFCC_best.png'); ?>" alt="AppFCC" style="width:80px;">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -10,6 +10,15 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active" href="<?php echo base_url(); ?>">Anuncios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>">Destacado</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>">Reciente</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>">Búsqueda</a>
             </li>
         </ul>
 
@@ -21,11 +30,11 @@
             </form> -->
             <li class="nav-item">
                 <?php if ($this->session->userdata('fcc')) { ?>
-                    <button class="btn btn-primary" href="<?php echo base_url('ingreso/salir'); ?>">
+                    <button class="btn btn-default" href="<?php echo base_url('ingreso/salir'); ?>">
                         Cerrar Sesión
                     </button>
                 <?php }else { ?>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sesion">
+                    <button class="btn btn-default" data-toggle="modal" data-target="#modal-sesion">
                         Iniciar Sesión
                     </button>
                 <?php } ?>

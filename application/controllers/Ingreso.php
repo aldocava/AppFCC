@@ -25,6 +25,7 @@ class Ingreso extends CI_Controller {
     }
 
     public function salir(){
-
+      $this->session->sess_destroy();
+      redirect(base_url());
     }
 }
