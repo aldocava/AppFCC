@@ -19,5 +19,8 @@
 
     <!-- <link rel="stylesheet" href="public/css/custom.css"> -->
     <link rel="stylesheet" href="public/css/estilo.css">
+
+    <!-- reCaptcha v3 de Google -->
+    <script src='https://www.google.com/recaptcha/api.js?render=6LcJ-ngUAAAAAOWc28Rx3o1sFVlNsR7LGvjFOYk7'></script>
 </head>
 <body>

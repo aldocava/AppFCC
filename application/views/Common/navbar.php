@@ -30,13 +30,13 @@
             </form> -->
             <li class="nav-item">
                 <?php if ($this->session->userdata('fcc')) { ?>
-                    <button class="btn btn-default" href="<?php echo base_url('ingreso/salir'); ?>">
+                    <a class="btn btn-default" href="<?php echo base_url('ingreso/salir'); ?>">
                         Cerrar Sesión
-                    </button>
+                    </a>
                 <?php }else { ?>
-                    <button class="btn btn-default" data-toggle="modal" data-target="#modal-sesion">
+                    <a class="btn btn-default" href="<?php echo base_url('ingreso/'); ?>">
                         Iniciar Sesión
-                    </button>
+                    </a>
                 <?php } ?>
 
                 <!-- <a class="nav-link" href="#">Iniciar Sesión</a> -->

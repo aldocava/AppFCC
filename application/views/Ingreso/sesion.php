@@ -10,7 +10,7 @@
             </div>
 
             <!-- Modal body -->
-            <?php form_open('ingreso/verificar'); ?>
+            <?php form_open('ingreso/verificar', 'id="myForm"'); ?>
             <div class="modal-body">
                 <?php if(validation_errors() != null): ?>
                     <div class="alert alert-danger">
@@ -38,6 +38,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
+                        <span class="glyphicon glyphicon-lock"></span>
                         <?php echo form_label('Contraseña', 'pswd', 'class="control-label"'); ?>
                     </div>
                     <div class="col-md-8">
@@ -55,13 +56,21 @@
                         ?>
                     </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <div class="g-recaptcha" data-sitekey="6Lcx7TAUAAAAAM1H0WPSPbNzYdh4hDABZA9b-dTH">
+                            <?php echo form_error('g-recaptcha-response', '<div class="error">', '</div>'); ?>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
             <?php echo form_close(); ?>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            </div>
+
         </div>
     </div>
 </div>

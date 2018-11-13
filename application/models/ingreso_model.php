@@ -7,17 +7,16 @@ class ingreso_model extends CI_Model {
     }
 
 
-    public function obtener_usuario(){
+    public function obtener_usuarios(){
         $this->db->select('*');
         $this->db->from('login');
         return $this->db->get()->result_array();
     }
 
-    public function verificar($user, $pswd){
+    public function verificar($user){
         $this->db->select('*');
-        $this->db->from('login');
-        $this->db->where('Usuario', $user);
-        $this->db->where('Contraseña', $pswd);
+        $this->db->from('login as l, rolusuarios as r');
+        $this->db->where('l.Usuario', $user);
         $query = $this->db->get()->result_array();
         if ($query != null) {
             return $query;
