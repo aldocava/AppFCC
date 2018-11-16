@@ -1,47 +1,48 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark navbar-brand-center">
     <a class="navbar-brand" href="<?php echo base_url(); ?>">
-        <img src="<?php echo base_url('public/img/Logo_AppFCC_best.png'); ?>" alt="AppFCC" style="width:80px;">
+        <img alt="Brand" src="<?php echo base_url('public/img/AppFCC - Icono Blanco.png'); ?>">
     </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url(); ?>">Anuncios</a>
+    <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbar-right" href="<?php echo base_url(); ?>">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>">Destacado</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>">Reciente</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>">Búsqueda</a>
-            </li>
-        </ul>
 
-        <ul class="navbar-nav ml-auto">
-            <!-- Barra de búsqueda -->
-            <!-- <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" placeholder="Ingresa un tema">
-                <button class="btn btn-success" type="submit">Buscar</button>
-            </form> -->
             <li class="nav-item">
-                <?php if ($this->session->userdata('fcc')) { ?>
-                    <a class="btn btn-default" href="<?php echo base_url('ingreso/salir'); ?>">
-                        Cerrar Sesión
-                    </a>
-                <?php }else { ?>
-                    <a class="btn btn-default" href="<?php echo base_url('ingreso/'); ?>">
-                        Iniciar Sesión
-                    </a>
-                <?php } ?>
+                <a class="nav-link navbar-right" href="Anunciar.html">Anunciar</a>
+            </li>
 
-                <!-- <a class="nav-link" href="#">Iniciar Sesión</a> -->
+            <li class="nav-item dropdown" id="menuLogin">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                <div class="dropdown-menu">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Iniciar Sesión</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
+                                <label for="inputEmail"> </label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                                <label for="inputPassword"> </label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-circle btn-xl btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
 </nav>
-<?php $this->load->view('ingreso/sesion'); ?>
