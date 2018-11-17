@@ -53,14 +53,13 @@
         <div class="form-group">
             <div class="col-md-4">
                 <div class="g-recaptcha" data-sitekey="6Lcx7TAUAAAAAM1H0WPSPbNzYdh4hDABZA9b-dTH">
-                    <?php echo form_error('g-recaptcha-response', '<div class="error">', '</div>'); ?>
                 </div>
             </div>
         </div>
 
         <div class="row">
           <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat ">Ingresar</button>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
           </div>
           <!-- /.col -->
         </div>

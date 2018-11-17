@@ -5,9 +5,9 @@ class Ingreso extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        // header( 'X-Content-Type-Options: nosniff' );
-        // header( 'X-Frame-Options: SAMEORIGIN' );
-        // header( 'X-XSS-Protection: 1; mode=block' );
+        header( 'X-Content-Type-Options: nosniff' );
+        header( 'X-Frame-Options: SAMEORIGIN' );
+        header( 'X-XSS-Protection: 1; mode=block' );
         $this->load->model('ingreso_model');
     }
 
@@ -18,7 +18,7 @@ class Ingreso extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $this->load->view('common/header');
             $this->load->view('common/navbar');
-            $this->load->view('ingreso/sesion2');
+            $this->load->view('inicio/principal');
             $this->load->view('common/footer');
             //redirect('ingreso');
         }else {
@@ -49,11 +49,12 @@ class Ingreso extends CI_Controller {
     public function verificar(){
         $this->form_validation->set_rules('username','Usuario','trim|xss_clean|required');
         $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
-         $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
+        $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
+        $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
         if ($this->form_validation->run() == false) {
             $this->load->view('common/header');
             $this->load->view('common/navbar');
-            $this->load->view('ingreso/sesion2');
+            $this->load->view('inicio/principal');
             $this->load->view('common/footer');
         }else {
             $session = $this->ingreso_model->verificar($this->input->post('username'));

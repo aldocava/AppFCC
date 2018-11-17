@@ -6,7 +6,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link navbar-right" href="<?php echo base_url(); ?>">Inicio <span class="sr-only">(current)</span></a>
@@ -15,31 +15,63 @@
             <li class="nav-item">
                 <a class="nav-link navbar-right" href="Anunciar.html">Anunciar</a>
             </li>
+        </ul>
 
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown" id="menuLogin">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-                <div class="dropdown-menu">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" aria-haspopup="true"aria-expanded="false">Iniciar Sesión</a>
+                <div class="dropdown-menu dropdown-menu-right">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Iniciar Sesión</h5>
-                        <form class="form-signin">
-                            <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
-                                <label for="inputEmail"> </label>
+                        <?php echo form_open('ingreso'); ?>
+                            <div class="form-group">
+                                <?php echo form_label('Usuario', 'username', 'class="control-label"'); ?>
+                                <?php $user = array(
+                                                'name'          => 'username',
+                                                'id'            => 'username',
+                                                'minlenght'     => '6',
+                                                'maxlength'     => '10',
+                                                'class'         => 'form-control',
+                                                'required'      => true,
+                                                'autofocus'     => true
+                                            );
+                                ?>
+
+                                <?php echo form_input($user); ?>
                             </div>
 
-                            <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-                                <label for="inputPassword"> </label>
+                            <div class="form-group">
+                                <?php echo form_label('Contraseña', 'pswd', 'class="control-label"'); ?>
+                                <?php $pass = array(
+                                                'name'          => 'pswd',
+                                                'id'            => 'pswd',
+                                                'minlenght'     => '6',
+                                                'maxlength'     => '20',
+                                                'class'         => 'form-control',
+                                                'required'      => true,
+                                            );
+                                ?>
+
+                                <?php echo form_password($pass); ?>
                             </div>
+
+                            <div class="g-recaptcha" data-sitekey="6Lcx7TAUAAAAAM1H0WPSPbNzYdh4hDABZA9b-dTH"></div>
 
                             <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
+                                <?php $data = array(
+                                                'name'          => 'savepswd',
+                                                'id'            => 'savepswd',
+                                                'class'         =>  'custom-control-input',
+                                                'checked'       => TRUE,
+                                                'style'         => 'margin:10px'
+                                            );
+                                ?>
+                                <?php echo form_checkbox($data); ?>
+                                <?php echo form_label('Recordar contraseña', 'savepswd', 'class="custom-control-label"'); ?>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-circle btn-xl btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                                <button class="btn btn-primary" type="submit">Entrar <i class="fas fa-sign-in-alt"></i></button>
                             </div>
-                        </form>
+                        <?php form_close(); ?>
                     </div>
                 </div>
             </li>
