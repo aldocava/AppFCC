@@ -22,6 +22,11 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" aria-haspopup="true"aria-expanded="false">Iniciar Sesión</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="card-body">
+                        <?php if(validation_errors() != null): ?>
+                            <div class="alert alert-danger">
+                                <?php echo validation_errors(); ?>
+                            </div>
+                        <?php endif; ?>
                         <?php echo form_open('ingreso'); ?>
                             <div class="form-group">
                                 <?php echo form_label('Usuario', 'username', 'class="control-label"'); ?>
@@ -54,7 +59,8 @@
                                 <?php echo form_password($pass); ?>
                             </div>
 
-                            <div class="g-recaptcha" data-sitekey="6Lcx7TAUAAAAAM1H0WPSPbNzYdh4hDABZA9b-dTH"></div>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LcJ-ngUAAAAAOWc28Rx3o1sFVlNsR7LGvjFOYk7"></div> -->
+                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"><br>
 
                             <div class="custom-control custom-checkbox mb-3">
                                 <?php $data = array(
@@ -78,3 +84,12 @@
         </ul>
     </div>
 </nav>
+
+<script type="text/javascript">
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LcJ-ngUAAAAAOWc28Rx3o1sFVlNsR7LGvjFOYk7', {action: 'login'})
+    .then(function(token) {
+        document.getElementById('g-recaptcha-response').value=token;
+    });
+});
+</script>

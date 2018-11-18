@@ -14,15 +14,10 @@ class Ingreso extends CI_Controller {
 	public function index(){
         $this->form_validation->set_rules('username','Usuario','trim|xss_clean|required');
         $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
-         $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
+        $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
         if ($this->form_validation->run() == false) {
-            $this->load->view('common/header');
-            $this->load->view('common/navbar');
-            $this->load->view('inicio/principal');
-            $this->load->view('common/footer');
-            //redirect('ingreso');
+            redirect('inicio');
         }else {
-            die();
             $session = $this->ingreso_model->verificar($this->input->post('username'));
             if ($session != false) {
                 $pass = $session[0]['Contraseña'];
@@ -46,43 +41,11 @@ class Ingreso extends CI_Controller {
         }
 	}
 
-    public function verificar(){
-        $this->form_validation->set_rules('username','Usuario','trim|xss_clean|required');
-        $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
-        $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
-        $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
-        if ($this->form_validation->run() == false) {
-            $this->load->view('common/header');
-            $this->load->view('common/navbar');
-            $this->load->view('inicio/principal');
-            $this->load->view('common/footer');
-        }else {
-            $session = $this->ingreso_model->verificar($this->input->post('username'));
-            if ($session != false) {
-                $pass = $session[0]['Contraseña'];
-                if (password_verify($this->input->post('pswd'), $pass)){
-                    echo "Sesión iniciada";
-                    $atributos = array(
-                                    'username' => $session[0]['Usuario'],
-                                    'correo' => $session[0]['Correo'],
-                                    'rol' => $session[0]['Id_Rol']
-                                );
-                    $this->session->userdata('appfcc', $atributos);
-                    $this->load->view('prueba/success');
-                }else {
-                    $this->form_validation->set_message('pswd', 'La contraseña es incorrecta');
-                }
-            }else {
-                $this->form_validation->set_message('username', 'El nombre de usuario es incorrecto');
-            }
-        }
-    }
-
     public function validate_captcha(){
         $captcha = $this->input->post('g-recaptcha-response');
         $response=@file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcJ-ngUAAAAAMQp1Skwxc3pqoqN0dTze5ikebNu & response=".$captcha."& remoteip=".$_SERVER['REMOTE_ADDR']);
         if ($response.'success'==FALSE){
-            $this->form_validation->set_message('vaidate_captcha', 'The reCAPTCHA field is telling me that you are a robot. Shall we give it another try?');
+            $this->form_validation->set_message('validate_captcha', 'The reCAPTCHA field is telling me that you are a robot. Shall we give it another try?');
             return FALSE;
         }else
             return TRUE;
