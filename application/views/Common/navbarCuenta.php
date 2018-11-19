@@ -20,8 +20,10 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navCuenta" aria-haspopup="true" aria-expanded="false">Cuenta</a>
                 <div class="dropdown-menu">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Opciones</h5>
-                        <a href="<?php echo base_url('ingreso/salir'); ?>" class="btn btn-primary">Salir</a>
+                        <h6 class="card-title text-center">Opciones</h6>
+                        <div class="text-center">
+                            <a href="<?php echo base_url('ingreso/salir'); ?>" class="btn btn-primary">Salir</a>
+                        </div>
                     </div>
                 </div>
             </li>

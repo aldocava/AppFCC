@@ -33,7 +33,7 @@
                                 <?php $user = array(
                                                 'name'          => 'username',
                                                 'id'            => 'username',
-                                                'minlenght'     => '6',
+                                                'minlenght'     => '4',
                                                 'maxlength'     => '10',
                                                 'class'         => 'form-control',
                                                 'required'      => true,
@@ -78,7 +78,7 @@
                             <div class="text-center">
                                 <button class="btn btn-primary" type="submit">Entrar <i class="fas fa-sign-in-alt"></i></button>
                             </div>
-                        <?php form_close(); ?>
+                        <?php echo form_close(); ?>
                     </div>
                 </div>
             </li>
