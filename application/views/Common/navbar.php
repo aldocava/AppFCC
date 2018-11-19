@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navbar-right" href="Anunciar.html">Anunciar</a>
+                <a class="nav-link navbar-right" href="#">Anunciar</a>
             </li>
         </ul>
 
@@ -68,6 +68,7 @@
                                                 'id'            => 'savepswd',
                                                 'class'         =>  'custom-control-input',
                                                 'checked'       => TRUE,
+                                                'value'         => 'si',
                                                 'style'         => 'margin:10px'
                                             );
                                 ?>

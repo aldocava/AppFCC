@@ -19,27 +19,66 @@ class Ingreso extends CI_Controller {
             redirect('inicio');
         }else {
             $session = $this->ingreso_model->verificar($this->input->post('username'));
+            //echo var_dump($session);
             if ($session != false) {
                 $pass = $session[0]['Contraseña'];
                 if (password_verify($this->input->post('pswd'), $pass)){
-                    echo "Sesión iniciada";
+
                     $atributos = array(
                                     'username' => $session[0]['Usuario'],
                                     'correo' => $session[0]['Correo'],
                                     'rol' => $session[0]['Id_Rol']
                                 );
-                    $this->session->userdata('appfcc', $atributos);
-                    $this->load->view('prueba/success');
+                    $this->session->set_userdata('appfcc', $atributos);
+                    $this->tipoDeUsuario();
                 }else {
                     $this->form_validation->set_message('pswd', 'La contraseña es incorrecta');
-                    redirect('ingreso');
+                    redirect('inicio');
                 }
             }else {
                 $this->form_validation->set_message('username', 'El nombre de usuario es incorrecto');
-                redirect('ingreso');
+                redirect('inicio');
             }
         }
 	}
+
+    public function tipoDeUsuario(){
+        $nivel = $this->session->userdata('appfcc')['rol'];
+        switch ($nivel) {
+            //Administrador
+            case '1':
+                $this->load->view('prueba/success');
+                //$this->salir();
+                break;
+            //UAcademica
+            case '2':
+                $this->load->view('common/header');
+                $this->load->view('common/navbarCuenta');
+                $this->load->view('Unidad Academica/crearAnuncio');
+                $this->load->view('common/footer');
+                //$this->salir();
+                break;
+            //Profesor
+            case '3':
+                $this->load->view('common/header');
+                $this->load->view('common/navbarCuenta');
+                $this->load->view('Profesor/crearAnuncio');
+                $this->load->view('common/footer');
+                //$this->salir();
+                break;
+            //Usuario
+            case '4':
+                $this->load->view('common/header');
+                $this->load->view('common/navbarCuenta');
+                $this->load->view('Usuario/perfil');
+                $this->load->view('common/footer');
+                // $this->salir();
+                break;
+            default:
+                // code...
+                break;
+        }
+    }
 
     public function validate_captcha(){
         $captcha = $this->input->post('g-recaptcha-response');

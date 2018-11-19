@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navbar-right" href="Anunciar.html">Anunciar</a>
+                <a class="nav-link navbar-right disabled" href="#">Anunciar</a>
             </li>
 
             <li class="nav-item dropdown" id="menu">
@@ -21,7 +21,7 @@
                 <div class="dropdown-menu">
                     <div class="card-body">
                         <h5 class="card-title text-center">Opciones</h5>
-                        
+                        <a href="<?php echo base_url('ingreso/salir'); ?>" class="btn btn-primary">Salir</a>
                     </div>
                 </div>
             </li>
