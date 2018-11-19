@@ -15,10 +15,11 @@
             <li class="nav-item">
                 <a class="nav-link navbar-right disabled" href="#">Anunciar</a>
             </li>
-
+        </ul>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown" id="menu">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navCuenta" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu dropdown-menu-right">
                     <div class="card-body">
                         <h6 class="card-title text-center">Opciones</h6>
                         <div class="text-center">
