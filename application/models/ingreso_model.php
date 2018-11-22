@@ -25,4 +25,13 @@ class ingreso_model extends CI_Model {
             return false;
         }
     }
+
+    public function getIdUser($data){
+        $cadena="select `Id_Usuario` from `login` where `Usuario`= '".$data["user"]."'; ";
+        $query = $this->db->query($cadena);
+        if ($query != null)
+           return $query;
+        else
+            return FALSE;
+    }
 }
