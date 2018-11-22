@@ -14,7 +14,7 @@ class Ingreso extends CI_Controller {
 	public function index(){
         $this->form_validation->set_rules('username','Usuario','trim|xss_clean|required');
         $this->form_validation->set_rules('pswd','Contraseña','trim|xss_clean|required');
-        $this->form_validation->set_rules('g-recaptcha-response','recaptcha validation','trim|required|callback_validate_captcha');
+        $this->form_validation->set_rules('g-recaptcha-response','Validación de Captcha','trim|required|callback_validate_captcha');
         if ($this->form_validation->run() == false) {
             redirect('inicio');
         }else {
@@ -47,34 +47,22 @@ class Ingreso extends CI_Controller {
             //Administrador
             case '1':
                 $this->load->view('common/header');
-                $this->load->view('common/navbarCuenta');
+                $this->load->view('common/navbarAdmin');
                 $this->load->view('prueba/success');
                 $this->load->view('common/footer');
                 //$this->salir();
                 break;
             //UAcademica
             case '2':
-                $this->load->view('common/header');
-                $this->load->view('common/navbarCuenta');
-                $this->load->view('Unidad Academica/crearAnuncio');
-                $this->load->view('common/footer');
-                //$this->salir();
+                redirect('UnidadAcademica');
                 break;
             //Profesor
             case '3':
-                $this->load->view('common/header');
-                $this->load->view('common/navbarCuenta');
-                $this->load->view('Profesor/crearAnuncio');
-                $this->load->view('common/footer');
-                //$this->salir();
+                redirect('Profesor');
                 break;
             //Usuario
             case '4':
-                $this->load->view('common/header');
-                $this->load->view('common/navbarCuenta');
-                $this->load->view('Usuario/perfil');
-                $this->load->view('common/footer');
-                // $this->salir();
+                redirect('usuario');
                 break;
             default:
                 // code...

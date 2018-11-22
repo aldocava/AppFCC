@@ -11,10 +11,6 @@
             <li class="nav-item active">
                 <a class="nav-link navbar-right" href="<?php echo base_url(); ?>">Inicio <span class="sr-only">(current)</span></a>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link navbar-right" href="#">Anunciar</a>
-            </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

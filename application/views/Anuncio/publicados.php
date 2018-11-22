@@ -1,12 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<body>
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="form-group col-md-1"></div>
 			<div class="form-group col-md-10">
-				<?php if($anuncios!=FALSE){ 
+				<?php if($anuncios!=FALSE){
 					foreach($anuncios->result() as $row) { ?>
 						<div class="card mb-3">
 							<img class="card-img-top" src="<?=base_url('images/'.$row->Imagen)?>" alt="Imagen no disponible">
@@ -16,7 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<p class="card-text"><small class="text-muted"><?=$row->Fecha_Inicio?></small></p>
 							</div>
 							<div class="card-body">
-								<a href="<?php echo base_url(); ?>usuario/modificaAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-outline-success">Editar</a>
+								<?php if ($this->session->userdata('appfcc')['rol'] == 2): ?>
+									<a href="<?php echo base_url(); ?>UnidadAcademica/modificaAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-outline-success">Editar</a>
+								<?php elseif ($this->session->userdata('appfcc')['rol'] == 3): ?>
+									<a href="<?php echo base_url(); ?>Profesor/modificaAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-outline-success">Editar</a>
+								<?php endif; ?>
 								<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Eliminar</button>
 								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div class="modal-dialog" role="document">
@@ -32,7 +33,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-												<a href="<?php echo base_url(); ?>usuario/borrarAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-primary">Continuar</a>
+												<?php if ($this->session->userdata('appfcc')['rol'] == 2): ?>
+													<a href="<?php echo base_url(); ?>UnidadAcademica/borrarAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-primary">Continuar</a>
+												<?php elseif ($this->session->userdata('appfcc')['rol'] == 3): ?>
+													<a href="<?php echo base_url(); ?>Profesor/borrarAnuncio/<?=$row->Id_Anuncio?>" class="btn btn-primary">Continuar</a>
+												<?php endif; ?>
 											</div>
 										</div>
 									</div>
@@ -45,4 +50,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group col-md-1"></div>
 		</div>
 	</div>
-</body>
+</section>

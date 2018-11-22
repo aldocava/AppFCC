@@ -1,7 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<body>
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="form-group col-md-2">
@@ -14,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 			<div class="form-group col-md-10">
-				<?php if($anuncios!=FALSE){ 
+				<?php if($anuncios!=FALSE){
 					foreach($anuncios->result() as $row) { ?>
 						<div class="card mb-3">
 							<img class="card-img-top" src="<?=base_url('images/'.$row->Imagen)?>" alt="Imagen no disponible">
@@ -32,4 +29,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
-</body>
+</section>

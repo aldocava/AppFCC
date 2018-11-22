@@ -5,6 +5,9 @@ class Usuario extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
+        if (!$this->session->has_userdata('appfcc')) {
+            redirect('/', 'refresh');
+        }
         $this->load->helper('url');
         $this->load->model('anuncio_model');
         $this->load->model('ingreso_model');
@@ -12,22 +15,22 @@ class Usuario extends CI_Controller {
     }
 
 	public function index(){
+        $data["anuncios"]= $this->anuncio_model->getAnuncios();
 		$this->load->view('common/header');
-		$this->load->view('common/navbar');
-		$data["anuncios"]= $this->anuncio_model->getAnuncios();
-		$this->load->view('anuncios',$data);
+		$this->load->view('common/navbarUsuario');
+		$this->load->view('anuncio/anuncios', $data);
 		$this->load->view('common/footer');
 	}
 
 
 
 	public function creaAnuncio(){
-		
+
 		$this->load->view('common/header');
 		$this->load->view('common/navbar');
 		$this->load->view('anunciar');
 		$this->load->view('common/footer');
-	
+
 	}
 
 	public function crea(){
@@ -40,10 +43,10 @@ class Usuario extends CI_Controller {
 		);
 		$this->load->library('upload', $config);
 		if($this->upload->do_upload('imagen')) {
-			
+
 			//$data = array('user' => $this->session->userdata('appfcc')['username']);
 			$data = array('user' => "appfcc");
-			$query = $this->ingreso_model->getIdUser($data); 
+			$query = $this->ingreso_model->getIdUser($data);
 			if( $query->num_rows() == 1 ){
 				foreach ($query->result() as $row) {
 					$id = $row->Id_Usuario;
@@ -58,17 +61,17 @@ class Usuario extends CI_Controller {
 					'fecha_inicio' => $this->input->post('fecha_inicio',TRUE),
 					'fecha_fin' => $this->input->post('fecha_fin',TRUE));
 			$this->anuncio_model->pushAnuncio($data);
-			redirect('Usuario/misAnuncios', 'refresh');		
+			redirect('Usuario/misAnuncios', 'refresh');
 		}
 		else
 			echo $this->upload->display_errors();
-		
+
 	}
 
 	public function misAnuncios(){
 		//$data = array('user' => $this->session->userdata('appfcc')['username']);
 		$data = array('user' => "appfcc");
-		$query = $this->ingreso_model->getIdUser($data); 
+		$query = $this->ingreso_model->getIdUser($data);
 		if( $query->num_rows() == 1 ){
 			foreach ($query->result() as $row) {
 				$id = array('idUsuario' => $row->Id_Usuario);
@@ -84,7 +87,7 @@ class Usuario extends CI_Controller {
 
 	public function modificaAnuncio(){
 		$data["Id_Anuncio"]=$this->uri->segment(3);
-		$query["anuncio"] = $this->anuncio_model->getAnuncio($data); 
+		$query["anuncio"] = $this->anuncio_model->getAnuncio($data);
 		if( $query!=FALSE ){
 			$this->load->view('common/header');
 			$this->load->view('common/navbar');
@@ -102,7 +105,7 @@ class Usuario extends CI_Controller {
 					'Fecha_fin' => $this->input->post('fecha_fin',TRUE));
 		$this->anuncio_model->updateAnuncio($data);
 		$this->load->view('common/header');
-		$this->load->view('common/footer');	
+		$this->load->view('common/footer');
 
 	}
 
@@ -112,6 +115,6 @@ class Usuario extends CI_Controller {
 		$this->load->view('common/header');
 		$this->load->view('common/navbar');
 		$this->load->view('common/footer');
-		redirect('Usuario/misAnuncios', 'refresh'); 
+		redirect('Usuario/misAnuncios', 'refresh');
 	}
 }
