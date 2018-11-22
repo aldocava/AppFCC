@@ -19,7 +19,6 @@ class Ingreso extends CI_Controller {
             redirect('inicio');
         }else {
             $session = $this->ingreso_model->verificar($this->input->post('username'));
-            //echo var_dump($session);
             if ($session != false) {
                 $pass = $session[0]['Contraseña'];
                 if (password_verify($this->input->post('pswd'), $pass)){
@@ -47,7 +46,10 @@ class Ingreso extends CI_Controller {
         switch ($nivel) {
             //Administrador
             case '1':
+                $this->load->view('common/header');
+                $this->load->view('common/navbarCuenta');
                 $this->load->view('prueba/success');
+                $this->load->view('common/footer');
                 //$this->salir();
                 break;
             //UAcademica

@@ -33,7 +33,7 @@
                                 <?php $user = array(
                                                 'name'          => 'username',
                                                 'id'            => 'username',
-                                                'minlenght'     => '6',
+                                                'minlenght'     => '4',
                                                 'maxlength'     => '10',
                                                 'class'         => 'form-control',
                                                 'required'      => true,
