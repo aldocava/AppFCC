@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anunciar | AppFCC</title>
+    <!-- Bootstrap -->
+	  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+	  
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	  
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark navbar-brand-center">
+      <a class="navbar-brand" href="Index.html">
+		  <img alt="Brand" src="images/AppFCC - Icono Blanco.png">
+		</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link navbar-right" href="Index.html">Inicio</a>
+			</li>
+			
+			<li class="nav-item active">
+            <a class="nav-link navbar-right" href="#">Anunciar <span class="sr-only">(current)</span></a>
+          </li>
+			
+          <li class="nav-item dropdown" id="menuLogin">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+            <div class="dropdown-menu">
+              
+				
+       
+          <div class="card-body">
+            <h5 class="card-title text-center">Iniciar Sesión</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
+                <label for="inputEmail"> </label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <label for="inputPassword"> </label>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
+              </div>
+			<div class="text-center">
+              <button class="btn btn-circle btn-xl btn-primary" type="submit"><i class="fas fa-sign-in-alt"></i></button>
+			</div>
+            </form>
+          </div>
+        			
+				
+				
+            </div>
+          </li>
+				
+	
+        </ul>
+	</div>
+    </nav>
+
+	
+	  
+	  
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+		  <br>
+          <h1>Anunciar</h1>
+			  Llena el siguiente formulario para publicar un anuncio, recuerda que los anuncios se ordenan y muestran por fecha de proximidad. ¡No publiques más de un anuncio para el mismo evento!
+		  <br>
+		  <br>
+			  
+		  <form>
+  		  <div class="form-group text-left">
+    	  <label for="id_titulo">Titulo</label>
+    	  <input type="text" class="form-control" id="id_titulo" 
+           		 placeholder="Ingrese nombre del evento">
+  	 	  </div>
+			  
+		  <div class="form-group text-left">
+    	  <label for="id_cuerpo">Descripción</label>
+    	  <textarea class="form-control" raws="5" id="id_cuerpo"> </textarea>
+  	 	  </div>
+			  
+	<div class="form-group text-left">
+		<label for="id_imagen">Imagen del anuncio</label>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Elegir imagen</label>
+  </div>
+</div>
+			  
+			  
+		  <div class="form-group text-left">
+  <label for="sel1">Categoría</label>
+  <select class="form-control" id="sel1">
+	<option>Avisos Generales</option>
+    <option>Bolsa de Trabajo</option>
+    <option>Concursos</option>
+    <option>Cursos</option>
+    <option>Festividades</option>
+  </select>
+</div>  
+		  <div class="input-group">
+			  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <input type="radio"> 
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="Link a página del evento (ej.: www.mievento.com)">
+</div>
+			  
+			  <br>
+			  <button type="submit" id="form-submit" class="btn btn-circle btn-xl btn-outline-success"><i class="fas fa-check"></i></button>
+			  <button type="reset" class="btn btn-circle btn-xl btn-outline-danger"><i class="fas fa-times"></i></button>
+			  
+		  </form>
+			  
+          </div>
+        </div>
+      </div>
+    </section>
+	  
+    <hr>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright 2018 | AppFCC (R) Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>

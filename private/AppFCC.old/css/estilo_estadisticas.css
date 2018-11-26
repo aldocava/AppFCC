@@ -1,0 +1,170 @@
+/* ------General------ */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+header, .main {
+	width: 100%;
+	margin: auto;
+}
+
+/* ------Header------ */
+.Fondo_Header {
+	clear: both;
+	padding-bottom: 6%;
+	background: #004064;
+}
+.Logo_AppFCC img {
+	width: 30%;
+	margin-top: 0.5%;
+	margin-left: 1.2%;
+	float: left;
+}
+.Redes_Sociales {
+	float: right;
+	margin-top: 1.4%;
+	margin-right: 1%;
+	width: 17%;
+}
+.Redes_Sociales img {
+	padding-right: 3%;
+	width: 16%;
+	float: right;
+}
+#correo {
+	width: 16%;
+}
+
+.Redes_Sociales img:hover {
+	filter:saturate(2.5);
+	transform: scale(1.2);
+}
+
+/* ------main------ */
+.main {
+	clear: both;
+	overflow: hidden;
+	background: url("../Imagenes/Fondo_Menu.jpg") center no-repeat;
+	min-height:100%;
+	background-size:cover;
+	background-attachment: fixed;
+}
+
+/*----------Datos Alumno---------------*/
+#Datos_Alumno {
+	font-family: "Segoe UI";
+	width: 37%;
+	float: left;
+	margin: 1.5%;
+}
+#Nombre_Alumno {
+	font-size: 30pt;
+	color: #D2DFEB;
+	text-shadow: 0.5pt 0.5pt 0.5pt black;
+}
+#Matricula {
+	font-size: 18pt;
+	color: #D2DFEB;
+}
+#Carrera {
+	font-size: 12pt;
+	color: #D2DFEB;
+}
+
+/*------------Progreso-------------*/
+#Progreso {
+	color: #ED7D31;
+	font-family: "Segoe UI";
+	width: 30%;
+	text-shadow: 0.5pt 0.5pt 0.5pt black;
+	margin-top: 2%;
+	float: left;
+	margin-bottom: 1.5%;
+}
+
+#Progreso p {
+	text-align: center;
+	font-size: 16pt;
+	float: left;
+}
+
+#Progreso #porcentaje {
+	float: left;
+	margin-left: 10%;
+	width: 25%;
+	font-size: 48pt;
+	text-align: right;
+}
+
+#Progreso #sim_por {
+	width: 30%;
+	font-size: 48pt;
+	float: left;
+	text-align: left;
+}
+
+#Progreso .label {
+	margin-left: 6%;
+}
+
+/*--------------Mapa Gráfico-----------------*/
+
+#mapa_grafico {
+	clear: both;
+	padding-top: 1.5%;
+	margin-bottom: 3%;
+	background-color: black;
+	opacity: 0.8;
+}
+
+#mapa_grafico img{
+	width: 100%;
+}
+
+#mapa_grafico p{
+	margin-left: 1.5%;
+	font-family: "Segoe UI";
+	font-size: 14pt;
+	color: #D2DFEB;
+	margin-bottom: 1.5%;
+}
+
+/*--------------Imágen título página--------------------*/
+
+#img_titulo_pagina {
+	position: absolute;
+	width: 28%;
+	top: 14%;
+	right: 1%;
+}
+
+/*-----------Salir--------------*/
+
+#Salir {
+	width: 20%;
+	float: right;
+	margin: 1.5%;
+	text-align: right;
+}
+#Salir a {
+	text-decoration: none;
+	color: #D2DFEB;
+	text-shadow: 1pt 1pt 1pt black;
+}
+
+#Salir a:hover {
+	color: #00b5e2;
+}
+
+/* ------Pie de Página------ */
+footer {
+	clear: both;
+	background: #004064;
+	text-align:center;
+	padding: 0.2% 0;
+}
+
+footer img {
+	width: 65%;
+}

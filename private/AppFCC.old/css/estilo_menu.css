@@ -1,0 +1,160 @@
+/* ------General------ */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+header, .main {
+	width: 100%;
+	margin: auto;
+}
+
+/* ------Header------ */
+.Fondo_Header {
+	clear: both;
+	padding-bottom: 6%;
+	background: #004064;
+}
+.Logo_AppFCC img {
+	width: 30%;
+	margin-top: 0.5%;
+	margin-left: 1.2%;
+	float: left;
+}
+.Redes_Sociales {
+	float: right;
+	margin-top: 1.4%;
+	margin-right: 1%;
+	width: 17%;
+}
+.Redes_Sociales img {
+	padding-right: 3%;
+	width: 16%;
+	float: right;
+}
+#correo {
+	width: 16%;
+}
+
+.Redes_Sociales img:hover {
+	filter:saturate(2.5);
+	transform: scale(1.2);
+}
+
+/* ------main------ */
+.main {
+	clear: both;
+	overflow: hidden;
+	background: url("../Imagenes/Fondo_Menu.jpg") center no-repeat;
+	min-height:100%;
+	background-size:cover;
+	background-attachment: fixed;
+	z-index: 1;
+}
+
+/*----------Datos Alumno---------------*/
+#Datos_Alumno {
+	font-family: "Segoe UI";
+	width: 70%;
+	float: left;
+	margin: 1.5%;
+}
+#Nombre_Alumno {
+	font-size: 30pt;
+	color: #D2DFEB;
+	text-shadow: 0.5pt 0.5pt 0.5pt black;
+}
+#Matricula {
+	font-size: 18pt;
+	color: #D2DFEB;
+}
+#Carrera {
+	font-size: 12pt;
+	color: #D2DFEB;
+}
+
+/*-----------Salir--------------*/
+
+#Salir {
+	width: 20%;
+	float: right;
+	margin: 1.5%;
+	text-align: right;
+}
+#Salir a {
+	text-decoration: none;
+	color: #D2DFEB;
+	text-shadow: 1pt 1pt 1pt black;
+}
+
+#Salir a:hover {
+	color: #00b5e2;
+}
+
+/*---------Espacio------------*/
+
+#espacio {
+	clear: both;
+	padding: 18% 10%;
+	margin-bottom: 5%;
+}
+
+
+/*------------Opciones----------------*/
+
+#opc {
+	z-index: 3;
+	clear: both;
+	background-color: black;
+	opacity: 0.7;
+	padding: 1.5% 10%;
+	color: #D2DFEB;
+	text-align: center;
+	position: absolute;
+	top: 40%;
+}
+
+#opc img {
+	width: 15%;
+	margin: 1% 3%;
+}
+
+#opc img:hover {
+	filter: saturate(10);
+	transform: scale(1.2);
+}
+
+/*----------Titulo opciones------------*/
+
+#titulo_opc {
+	z-index: 2;
+	clear: both;
+	position: absolute;
+	top: 40%;
+	padding-left: 12%;
+	padding-right: 12%;
+}
+
+#titulo_opc img {
+	width: 15.8%;
+	margin: 2% 3%;
+	margin-top: 2.5%;
+}
+
+#titulo_opc .w {
+	width: 15.8%;
+	margin: 2% 3%;
+	margin-top: -0.5%;
+}
+
+/* ------Pie de Página------ */
+footer {
+	clear: both;
+	background: #004064;
+	text-align:center;
+	padding: 0.2% 0;
+}
+
+footer img {
+	width: 65%;
+}
